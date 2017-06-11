@@ -9,9 +9,12 @@ function main()
 % smoothBool = 1
 
 
-disp('loading paths')
-addpath(genpath('/N/u/hayashis/BigRed2/git/jsonlab'))
-addpath(genpath('/N/u/kitchell/Karst/Applications/iso2mesh'))
+switch getenv('ENV')
+case 'IUHPC'
+    disp('loading paths')
+    addpath(genpath('/N/u/hayashis/BigRed2/git/jsonlab'))
+    addpath(genpath('/N/u/kitchell/Karst/Applications/iso2mesh'))
+end
 
 % load config.json
 config = loadjson('config.json');
