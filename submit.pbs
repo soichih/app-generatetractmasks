@@ -7,9 +7,10 @@ cd $PBS_O_WORKDIR
 
 module load matlab
 
-export MATLABPATH=$MATLABPATH:$SCA_SERVICE_DIR
+export MATLABPATH=$MATLABPATH:$SERVICE_DIR #needed sto find main.m which is installed in $SERVICE_DIR
 matlab -nodisplay -nosplash -r main
 
+#matlal doesn't set return code,so we need to check the output file to see if script completed successfully
 if [ -d "masks" ];
 then 
   echo 0 > finished
